@@ -1,11 +1,12 @@
-# Slimefun4 Addon
-This is an example Repository for a generic Slimefun4 Addon.
-In the top left is a button "Use this template", click this to create your own Addon for Slimefun4 using this basic template.
+# Nuclear Energy
+You've heard enough scary stories about Nuclear Power,<br>
+And it's "Horrifying" nature of "Mutations" and whatnot, But in reality?<br>
+Nuclear power is just a Nuclear powered Steam Engine. (Not kidding, look it up.) <br>
+So, this SF4 Addon is aiming to make a normal nuclear reactor (Imagine, SL-1, Chernobyl Nuclear Plant, anything like that). 
 
-## How to create your own addon.
-This is a template repository that you can use to create your own Slimefun4 Addon.<br>
-We have also written an extensive step-by-step tutorial which you can find here:<br>
-https://github.com/Slimefun/Slimefun4/wiki/Developer-Guide
+
+## THE RESOURCES
+bla bla bla this is a WIP Lorem ipsum something like that, idc
 
 ## Changing some important things
 Navigate to `src/main/java` and rename the package and the .java File to your liking.<br>

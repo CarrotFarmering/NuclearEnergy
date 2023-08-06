@@ -1,4 +1,4 @@
-package me.CHANGEME.slimefunaddon;
+package me.carrotfarmer.nuclearenergy;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

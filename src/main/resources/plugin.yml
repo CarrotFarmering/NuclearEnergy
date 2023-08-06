@@ -1,18 +1,17 @@
 ## CHANGE this to the name of your plugin.
-name: SlimefunAddon
+name: NuclearEnergy
 
 ## CHANGE this to your username.
-author: CHANGEME
+author: carrotfarmer
 
 ## CHANGE this to a meaninful but short description of your plugin.
-description: A generic Slimefun4-Addon
+description: A generic "Nuclear-Energy-Adding" addon for SlimeFun4
 
 ## CHANGE this to the path of the class that extends JavaPlugin.
-main: me.CHANGEME.slimefunaddon.ExampleAddon
+main: me.carrotfarmer.nuclearenergy.NuclearEnergy
 
 ## You can change this to link to your website or repository. You can also remove this line if you want to.
-website: https://github.com/Slimefun/Addon-Template
-
+website: https://github.com/CarrotFarmering/NuclearEnergy
 ## This value is automatically replaced by the version specified in your pom.xml file.
 ## Do not change this.
 version: ${project.version}

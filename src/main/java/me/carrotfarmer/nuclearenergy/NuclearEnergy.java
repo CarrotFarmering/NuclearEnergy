@@ -5,17 +5,19 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import me.carrotfarmer.nuclearenergy.general.BaseItems;
 
-public class ExampleAddon extends JavaPlugin implements SlimefunAddon {
 
-    @Override
+public class NuclearEnergy extends JavaPlugin implements SlimefunAddon {
+
+@Override
     public void onEnable() {
         // Read something from your config.yml
         Config cfg = new Config(this);
@@ -39,7 +41,7 @@ public class ExampleAddon extends JavaPlugin implements SlimefunAddon {
          * This class has many constructors, it is very important
          * that you give each item a unique id.
          */
-        SlimefunItemStack slimefunItem = new SlimefunItemStack("EM_COIL", Material.ACACIA_FENCE, "&4Electromagnetic Coil", "&cWhat can you make with this?");
+    
 
         /*
          * 3. Creating a Recipe
@@ -48,7 +50,10 @@ public class ExampleAddon extends JavaPlugin implements SlimefunAddon {
          * The machine in which this recipe is crafted in is specified
          * further down as the RecipeType.
          */
-        ItemStack[] recipe = {SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.STEEL_PLATE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE };
+        ItemStack[] em_coil_recipe = {SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.STEEL_PLATE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE };
+        SlimefunItem em_coil = new SlimefunItem(itemGroup, BaseItems.em_coil, RecipeType.ENHANCED_CRAFTING_TABLE, em_coil_recipe);   
+        ItemStack[] dynamo_recipe = {SlimefunItems.STEEL_PLATE, SlimefunItems.STEEL_PLATE, SlimefunItems.STEEL_PLATE, SlimefunItems.STEEL_PLATE, em_coil.getItem(), SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_WIRE }; 
+        SlimefunItem dynamo = new SlimefunItem(itemGroup, BaseItems.dynamo, RecipeType.ENHANCED_CRAFTING_TABLE, dynamo_recipe);   
 
         /*
          * 4. Registering the Item
@@ -57,8 +62,9 @@ public class ExampleAddon extends JavaPlugin implements SlimefunAddon {
          * which this item is crafted in.
          * Recipe Types from Slimefun itself will automatically add the recipe to that machine.
          */
-        SlimefunItem item = new SlimefunItem(itemGroup, slimefunItem, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
-        item.register(this);
+    
+        em_coil.register(this);
+        dynamo.register(this);
     }
 
     @Override
@@ -66,13 +72,13 @@ public class ExampleAddon extends JavaPlugin implements SlimefunAddon {
         // Logic for disabling the plugin...
     }
 
-    @Override
+   
     public String getBugTrackerURL() {
         // You can return a link to your Bug Tracker instead of null here
-        return null;
+        return "github.com/CarrotFarmering/NuclearEnergy/issues";
     }
 
-    @Override
+    
     public JavaPlugin getJavaPlugin() {
         /*
          * You will need to return a reference to your Plugin here.
